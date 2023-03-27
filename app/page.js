@@ -1,7 +1,9 @@
+import HomeHeader from './components/HomeHeader';
+
 const Home = () => {
   return (
     <main>
-      <h1 className='text-4xl'>Google Clone</h1>
+      <HomeHeader />
     </main>
   );
 };
