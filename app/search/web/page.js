@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 const WebSearch = async ({ searchParams }) => {
   const searchTerm = searchParams.searchTerm;
 
@@ -6,6 +8,24 @@ const WebSearch = async ({ searchParams }) => {
   );
   const data = await res.json();
   const searchData = data.items;
+
+  if (!res.ok) {
+    throw new Error('Something went wrong. Failed to fetch data!');
+  }
+
+  if (!searchData) {
+    return (
+      <div className='flex flex-col justify-center items-center pt-10'>
+        <h1 className='text-3xl mb-4'>No Results Found!</h1>
+        <p className='text-lg mb-4'>
+          Try searching for something else or go back to the homepage.
+        </p>
+        <Link className='text-lg text-blue-500' href='/'>
+          Home
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div>
