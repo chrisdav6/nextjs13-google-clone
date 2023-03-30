@@ -7,7 +7,7 @@ const WebSearchResults = ({ data }) => {
   console.log(data);
 
   return (
-    <div className='w-full px-3 pb-24 sm:pl-[5%] md:pl-[14%] lg:pl-48'>
+    <div className='w-full px-3 pb-36 sm:pl-[5%] md:pl-[14%] lg:pl-48'>
       <p className='text-gray-600 text-sm mb-5 mt-3'>
         About: {data.searchInformation?.formattedTotalResults} results{' '}
         {data.searchInformation?.formattedSearchTime} seconds
