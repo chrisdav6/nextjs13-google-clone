@@ -1,6 +1,8 @@
-const WebSearch = async () => {
+const WebSearch = async ({ searchParams }) => {
+  const searchTerm = searchParams.searchTerm;
+
   const res = await fetch(
-    `https://customsearch.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API}&cx=${process.env.GOOGLE_CX_KEY}&q=cars`
+    `https://customsearch.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API}&cx=${process.env.GOOGLE_CX_KEY}&q=${searchTerm}`
   );
   const data = await res.json();
   const searchData = data.items;
