@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import Parser from 'html-react-parser';
+import PaginationButtons from './PaginationButtons';
 
 const WebSearchResults = ({ data }) => {
   const searchResults = data.items;
@@ -7,7 +8,7 @@ const WebSearchResults = ({ data }) => {
   console.log(data);
 
   return (
-    <div className='w-full px-3 pb-36 sm:pl-[5%] md:pl-[14%] lg:pl-48'>
+    <div className='w-full px-3 pb-52 sm:pb-44 sm:pl-[5%] md:pl-[14%] lg:pl-48'>
       <p className='text-gray-600 text-sm mb-5 mt-3'>
         About: {data.searchInformation?.formattedTotalResults} results{' '}
         {data.searchInformation?.formattedSearchTime} seconds
@@ -29,6 +30,9 @@ const WebSearchResults = ({ data }) => {
           <p className='text-gray-600'>{Parser(searchResult.htmlSnippet)}</p>
         </div>
       ))}
+      <div>
+        <PaginationButtons />
+      </div>
     </div>
   );
 };
