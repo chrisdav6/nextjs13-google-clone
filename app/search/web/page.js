@@ -6,7 +6,7 @@ const WebSearch = async ({ searchParams }) => {
   const searchTerm = searchParams.searchTerm;
 
   //Prevent Fetch with every save
-  await new Promise((resolve) => setTimeout(resolve, 10000));
+  // await new Promise((resolve) => setTimeout(resolve, 10000));
 
   const res = await fetch(
     `https://customsearch.googleapis.com/customsearch/v1?key=${process.env.GOOGLE_API}&cx=${process.env.GOOGLE_CX_KEY}&q=${searchTerm}&start=${startIndex}`
